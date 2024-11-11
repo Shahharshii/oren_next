@@ -107,7 +107,7 @@ const Dashboard: React.FC = () => {
 
   const dashboardRef = useRef<HTMLDivElement>(null);
   const [showForm, setShowForm] = useState<boolean>(true);
-  const [isSmallScreen, setIsSmallScreen] = useState<boolean>(window.innerWidth < 1024);
+  const [isSmallScreen, setIsSmallScreen] = useState<boolean>(false);
   const router = useRouter();
 
   const handleInputChange = (year: string, metric: string, value: string): void => {
@@ -258,6 +258,8 @@ const Dashboard: React.FC = () => {
   }, []);
 
   useEffect(() => {
+    setIsSmallScreen(window.innerWidth < 1024);
+    
     const handleResize = (): void => {
       setIsSmallScreen(window.innerWidth < 1024);
     };
