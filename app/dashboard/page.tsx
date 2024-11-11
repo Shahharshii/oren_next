@@ -197,7 +197,7 @@ const Dashboard: React.FC = () => {
         body: JSON.stringify(formattedData),
       });
 
-      if (response.ok) {
+      if (response.status === 201) {
         toast.success("Data submitted successfully!");
       }
     } catch (error) {
